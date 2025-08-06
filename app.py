@@ -84,6 +84,7 @@ def retrieve_news_by_topic(news_df, topic, keyword_rules, top_n=5):
 st.set_page_config(page_title="新聞對話機器人", page_icon="📰")
 st.title("🤖 區塊鍊新聞對話機器人")
 st.caption("輸入與新聞主題相關的問題，我會幫你找出最新相關新聞！")
+st.caption("機器人所參考之新聞皆來自動驅動區塊鍊新聞網站 (BlockTempo)之區塊鍊商業應用金融市場")
 
 # 載入資料
 news_df = load_news_data()

@@ -1,38 +1,52 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
+import requests
+from bs4 import BeautifulSoup
 
-def crawl_blocktempo_news(pages=5):
-    url = "https://www.blocktempo.com/category/business/finance-market/"
-    service = ChromeService(ChromeDriverManager().install())
+def crawl_blocktempo_news(page_count=3):
+    base_url = "https://www.blocktempo.com/category/business/finance-market/"
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
 
-    chrome_option = Options()
-    chrome_option.add_argument("--headless")  # 無頭執行，不開瀏覽器
-    chrome_option.add_argument("--disable-gpu")
-    prefs = {"profile.default_content_setting_values.notifications": 2}
-    chrome_option.add_experimental_option("prefs", prefs)
-
-    driver = webdriver.Chrome(service=service, options=chrome_option)
     results = []
 
-    try:
-        for page in range(1, pages + 1):
-            driver.get(url + f"page/{page}/")
-            driver.implicitly_wait(10)
-            articles = driver.find_elements(By.XPATH, "//article")
-            for article in articles:
-                try:
-                    a_tag = article.find_element(By.XPATH, ".//h3[@class='jeg_post_title']/a")
-                    title = a_tag.text.strip()
-                    link = a_tag.get_attribute("href")
-                    time = article.find_element(By.XPATH, ".//div[contains(@class, 'jeg_meta_date')]").text
-                    labels = article.find_element(By.XPATH, ".//div[contains(@class, 'jeg_post_category')]").text
-                    results.append({'title': title, 'url': link, 'labels': labels, 'time': time})
-                except Exception:
-                    continue
-    finally:
-        driver.quit()
+    for page in range(1, page_count + 1):
+        if page == 1:
+            url = base_url
+        else:
+            url = f"{base_url}page/{page}/"
+
+        print(f"📄 正在抓取：{url}")
+        response = requests.get(url, headers=headers)
+
+        if response.status_code != 200:
+            print(f"⚠️ 無法取得第 {page} 頁 (status code: {response.status_code})，略過。")
+            continue
+
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        # 每篇文章封裝在 article.blockArticle 裡
+        articles = soup.select("article.jeg_post")
+
+        for article in articles:
+            try:
+                title_tag = article.select_one("h3.jeg_post_title > a")
+                title = title_tag.text.strip()
+                link = title_tag["href"]
+
+                date_tag = article.select_one(".jeg_meta_date")
+                time = date_tag.text.strip() if date_tag else ""
+
+                label_tag = article.select_one(".jeg_post_category")
+                labels = label_tag.text.strip() if label_tag else ""
+
+                results.append({
+                    "title": title,
+                    "url": link,
+                    "labels": labels,
+                    "time": time
+                })
+            except Exception as e:
+                print("⚠️ 擷取失敗：", e)
+                continue
 
     return results

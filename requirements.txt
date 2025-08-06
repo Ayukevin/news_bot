@@ -7,6 +7,6 @@ python-telegram-bot==22.3
 PyYAML==6.0.2
 PyYAML==6.0.2
 scikit_learn==1.7.1
-selenium==4.34.2
 streamlit==1.47.1
-webdriver_manager==4.0.2
+requests
+beautifulsoup4

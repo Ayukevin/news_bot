@@ -6,13 +6,13 @@
 
 ## 架構設計與功能模組
 
-| 模組名稱                                     | 功能說明                                        |
-| -------------------------------------------- | ----------------------------------------------- |
-| `crawler.py`（Crawler）                    | 自動爬取鏈新聞網站（Blocktempo），收集最新資料  |
-| `news_updater.py`（News Updater）          | 比較資料表並新增新新聞項目                      |
-| `nlp_processor.py`（NLP Processor）        | 使用 jieba 斷詞、TF-IDF 特徵抽取與 LDA 主題分類 |
-| `analyzer_lda_topic.py`（LDA-YAML 同步器） | 自動更新主題與 LDA topic 對應關係至 YAML        |
-| `app.py`（Streamlit UI）                   | 對話式使用者互動介面，查詢新聞與觸發更新流程    |
+| 模組名稱                                     | 功能說明                                         |
+| -------------------------------------------- | ------------------------------------------------ |
+| `crawler.py`（Crawler）                    | 自動爬取動區新聞網站（Blocktempo），收集最新資料 |
+| `news_updater.py`（News Updater）          | 比較資料表並新增新新聞項目                       |
+| `nlp_processor.py`（NLP Processor）        | 使用 jieba 斷詞、TF-IDF 特徵抽取與 LDA 主題分類  |
+| `analyzer_lda_topic.py`（LDA-YAML 同步器） | 自動更新主題與 LDA topic 對應關係至 YAML         |
+| `app.py`（Streamlit UI）                   | 對話式使用者互動介面，查詢新聞與觸發更新流程     |
 
 ---
 

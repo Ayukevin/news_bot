@@ -1,0 +1,31 @@
+比特幣:
+  keywords: [比特幣, BTC, bitcoin, btc價格, satoshi, 幣價, 加密貨幣, 區塊鏈]
+  lda_topics: [1,2,3,4,5]
+
+以太:
+  keywords: [以太幣, ETH, ethereum, eth幣價]
+  lda_topics: []
+
+聯準會:
+  keywords: [聯準會, Federal Reserve, Fed, 升息, 降息, 利率, 鮑爾, CPI, 通膨, 通貨膨脹]
+  lda_topics: [1,2,3,5]
+
+美股:
+  keywords: [美股, 標普, 道瓊, NASDAQ, S&P500, 科技股,etf]
+  lda_topics: [2,3,4,5]
+
+通貨膨脹:
+  keywords: [通膨, 通貨膨脹, CPI, PPI]
+  lda_topics: []
+
+NFT:
+  keywords: [NFT, Non-Fungible Token, 數位收藏品]
+  lda_topics: []
+
+區塊鏈:
+  keywords: [區塊鏈, blockchain, 區塊技術]
+  lda_topics: [4]
+
+最新消息:
+  keywords: [熱門, 最近, 最新, today, 今晚]
+  lda_topics: []

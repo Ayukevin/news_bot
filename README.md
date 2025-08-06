@@ -1,6 +1,6 @@
 # crypto_newsbot
 
-這是一個基於 Python + Streamlit 的互動式新聞查詢系統，整合了新聞爬蟲、自動更新、中文斷詞 (Jieba)、LDA 主題分析、模糊匹配查詢等模組，能夠根據使用者輸入主題，自動推薦最相關的區塊鏈相關新聞。
+[區塊鍊新聞對話機器人](https://newsbot-hcdzjnarh2d3dwrdlwwuka.streamlit.app/)是一個基於 Python + Streamlit 的互動式新聞查詢系統，整合了新聞爬蟲、自動更新、中文斷詞 (Jieba)、LDA 主題分析、模糊匹配查詢等模組，能夠根據使用者輸入主題，自動推薦最相關的區塊鏈相關新聞。
 
 ---
 

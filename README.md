@@ -44,4 +44,4 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-※本程式所擷取之新聞資料來源為[Blocktempo 動區新聞](https://www.blocktempo.com/category/business/finance-market/)，新聞內容僅用於 AI 自然語言應用展示，不做為商業用途或再次分發使用。若新聞來源網站對資料使用有異議，請聯繫開發者，我們將立即配合下架。
+※本程式所擷取之新聞資料來源為[Blocktempo 動區新聞](https://www.blocktempo.com/category/business/finance-market/)，新聞內容僅用於 AI 自然語言應用展示，不做為商業用途或再次分發使用。若新聞來源網站對資料使用有異議，請麻煩聯繫我，我將立即配合下架。
